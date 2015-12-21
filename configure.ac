@@ -1,0 +1,23 @@
+AC_INIT([indelible], [1.03])
+AM_INIT_AUTOMAKE([-Wall foreign])
+
+AC_PROG_CPP
+AC_PROG_CXX
+
+AC_LANG(C++)
+
+AC_CHECK_LIB([m],[cos])
+
+AC_TYPE_SIZE_T
+AC_TYPE_INT32_T
+AC_TYPE_UINT32_T
+AC_HEADER_STDBOOL
+
+AC_FUNC_MALLOC
+AC_CHECK_HEADERS([limits.h])
+AC_CHECK_FUNCS([floor pow sqrt])
+
+AC_CONFIG_FILES([
+ Makefile
+])
+AC_OUTPUT
