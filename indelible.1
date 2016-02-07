@@ -1,0 +1,47 @@
+.TH INDELIBLE "1" "2010" "1.03" ""
+.SH NAME
+indelible \- powerful and flexible simulator of biological evolution
+.SH SYNOPSIS
+.B indelible
+.TP
+No options can be passed via the commandline.
+.SH DESCRIPTION
+.TP
+\fBindelible\fR can simulate evolution of multi-partitioned nucleotide, amino-acid, or codon data sets through the processes of insertion, deletion, and substitution in continous time. All common evolutionary models are supported.
+.TP
+The full documentation for \fBindelible\fR is available under \fI/usr/share/doc/indelible/help/index.html\fR.
+.SH CONFIGURATION
+.TP
+\fBindelible\fR reads the settings for a simulation run from a file named \fIcontrol.txt\fR in the current directory. The file is split into blocks, with each block controlling one particular aspect of the simulation. Blocks may contain further sub-blocks. Comments can be given in C or C++ style. If \fBindelible\fR is executed without a control file present, an example file is generated.
+.TP
+\fB[TYPE]\fR type
+Every control file must begin with a \fBTYPE\fR block. The possible types are \fINUCLEOTIDE\fR, \fIAMINOACID\fR, and \fICODON\fR.
+.TP
+\fB[SETTINGS]\fR
+This block specifies non-essential user preferences such as output file types and formats, seeds for the random number generator, and whether to output detailed reports.
+.TP
+\fB[MODEL]\fR modelname
+This block starts a new evolutionary model to be used for simulation. The particular parameters including substitution models, indel-rates and codon-site models are controlled via submodels. \fImodelname\fR can be any name of your choosing.
+.TP
+\fB[TREE]\fR treename newick
+This block is used to specify a guide-tree with the given name \fItreename\fR. Evolutionary distances are represented as branch lengths for the tree in \fINEWICK\fR format.
+.TP
+\fB[BRANCHES]\fR
+These blocks are used to simulate non-stationary and non-homogenous processes. Different models can be specified on different branches of the guide-tree allowing branches to have different models of substitution, indel length distribution, rate heterogeneity, base composition etc. 
+.TP
+\fB[PARTITIONS]\fR partitionname
+During each run multiple sequence partitions can be simulated. For each partition the guide-tree, evolutionary model and sequence length has to be specified.
+.TP
+\fB[EVOLVE]\fR
+Within this block multiple replicas of a partition may be generated.
+.SH COPYRIGHT
+Copyright \(co 2010 William Fletcher
+License GPLv3+: GNU GPL version 3 or later.
+.br
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+The full license text is available at <http://gnu.org/licenses/gpl.html>.
+.PP
+.SH ACKNOWLEDGMENTS
+William Fletcher and Ziheng Yang (2009). INDELible: A Flexible Simulator of Biological Sequence Evolution, \fIMolecular Biology and Evolution,\fR 26(8):1879-1888.
+.SS
