@@ -3771,7 +3771,7 @@ void printresultsout(int currentrep,  string filenamestub, int ntaxa, int myleng
 		//	PrintProgress2( blocknumber,  numberofevolveblocks,  thisrep,  reps, printcount);
 
 			for(int j=0; j<TsequencesINT.size(); j++) makeprintseqLEAF(j,lastlengthcount, (TinsPOS.at(j)).at(i), (TsequencesINT.at(j)).at(i), (TinsINT.at(j)).at(i), i, (*results), (*results2),  0) ;
-			(*results)<<"     "<<endl; (*results2)<<"     "<<endl;
+			(*results)<<endl; (*results2)<<endl;
 		}
 
 //cout<<endl;
@@ -3809,7 +3809,7 @@ if(ancestralprint)
 				//		PrintProgress2( blocknumber,  numberofevolveblocks,  thisrep,  reps, printcount);
 						
 						for(int j=0; j<TsequencesINT.size(); j++) makeprintseqINT(j,lastlengthcount, (TinsPOS.at(j)).at(i), (TsequencesINT.at(j)).at(i),(TinsINT.at(j)).at(i),i,(*results3), 1); 
-						(*results3)<<"     "<<endl;
+						(*results3)<<endl;
 
 					//}
 
@@ -3827,7 +3827,7 @@ if(ancestralprint)
 //		cout<<" Printing root."<<endl;
 		
 		for(int j=0; j<TsequencesINT.size(); j++) makeprintseqINT(j,lastlengthcount, (TinsPOS.at(j)).at(0), (TsequencesINT.at(j)).at(0),(TinsINT.at(j)).at(0),0,*results3, 1); 
-		(*results3)<<"     "<<endl;
+		(*results3)<<endl;
 	}
 	else
 	{
@@ -3853,7 +3853,7 @@ if(ancestralprint)
 		//		PrintProgress2( blocknumber,  numberofevolveblocks,  thisrep,  reps, printcount);
 				
 				for(int j=0; j<TsequencesINT.size(); j++) makeprintseqINT(j,lastlengthcount, (TinsPOS.at(j)).at(i), (TsequencesINT.at(j)).at(i),(TinsINT.at(j)).at(i),i,*results, 1); 
-				(*results)<<"     "<<endl;
+				(*results)<<endl;
 
 			}
 	
@@ -3871,7 +3871,7 @@ if(ancestralprint)
 	//	cout<<" Printing root."<<endl;
 
 		for(int j=0; j<TsequencesINT.size(); j++) makeprintseqINT(j,lastlengthcount, (TinsPOS.at(j)).at(0), (TsequencesINT.at(j)).at(0),(TinsINT.at(j)).at(0),0,*results, 1); 
-		(*results)<<"     "<<endl;
+		(*results)<<endl;
 
 	}
 		
@@ -3885,7 +3885,7 @@ if(ancestralprint)
 		
 		if(fileperrep) (*results)<<paupend; else (*results)<<paupmiddle;
 		
-		(*results)<<"     "<<endl;(*results2)<<"     "<<endl;
+		(*results)<<endl;(*results2)<<endl;
 		
 		
 
