@@ -123,6 +123,8 @@ int inspinvcount, corepinvcount;
 #include <sstream>
 #include <algorithm>
 #include <map>
+#include <sys/types.h>
+#include <unistd.h>
 
 #ifdef WINDOWS
 	#include "windows.h"
