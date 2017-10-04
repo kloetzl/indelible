@@ -4163,6 +4163,7 @@ void printoutrates(int &sitecount,int partition, ofstream &ratesout, vector<int>
 }
 
 
+void usage(int);
 /////////////////////////////////////   MAIN PROGRAM
 
 int main(int argc, char* argv[])
@@ -4361,6 +4362,15 @@ LOG = new ofstream;
 #endif
 	// print some initial output to screen and (*LOG) files and set up some timing factors
 
+	int c;
+	while ((c = getopt(argc, argv, "h")) != -1) {
+		if (c == 'h') {
+			usage(EXIT_SUCCESS);
+		} else {
+			usage(EXIT_FAILURE);
+		}
+	}
+
 	start = clock();
 	time_t starttime, endtime, startofblock, endofblock; 
 	struct tm *timeinfo; time(&starttime); timeinfo=localtime(&starttime); 
@@ -4370,7 +4380,12 @@ LOG = new ofstream;
 	cout<<endl<<" INDELible V"<<VersionNumber<<" by Will Fletcher: Simulation began at "<<asctime(timeinfo)<<endl<<endl;
 
 
-	int isthereanerror=docontrol();			// parse and process control file
+	argc -= optind, argv += optind;
+	if (argc) {
+		masterfilename = string(argv[0]);
+	}
+
+	int isthereanerror=docontrol(masterfilename);			// parse and process control file
 
 	if( isthereanerror==-1) // if parsing and processing of control file returns an error then quits.
 	{delete results; delete results2; delete results3; delete LOG; return -1;}
@@ -4973,3 +4988,16 @@ LOG = new ofstream;
 		return 0;
 }				
 
+
+void usage(int exit_code)
+{
+	static const char str[] = {
+		"Usage: indelible [-h] [FILE]\n"
+		"Powerful and flexible simulator of biological evolution.\n"
+		"If no FILE is given, parameters are read from 'control.txt'.\n"
+		"Use '-' to read from standard input.\n"
+	};
+
+	fprintf(exit_code == EXIT_SUCCESS ? stdout : stderr, str);
+	exit(exit_code);
+}

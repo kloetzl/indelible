@@ -3731,13 +3731,14 @@ int dealwithevolve(vector<string> &block)
 
 string paupstart, paupmiddle, paupend;
 
-int docontrol()
+int docontrol(string masterfilename)
 {		
 	// this is the main function that processes the control file and calls the other relevant processing functions
 
 	int isthereanerror=0;
 	ifstream if1;
 	if1.open(masterfilename.c_str());
+	istream &input = masterfilename == "-" ? cin : if1;
 
 	char c1='q', c2='q'; //,c2,c3,c4,c5,c6;
 	bool notwhitespace=true;
@@ -3762,7 +3763,7 @@ int docontrol()
 
 	bool writeon=true;
 	string s1,s2,s3;
-	if(!if1.good()) 
+	if(!input.good())
 	{
 		bool waste=true;
 		for(int qa=0; qa<10; qa++)
@@ -3824,7 +3825,7 @@ int docontrol()
 	vector<char> temp1, temp2, temp3;
 
 	temp1.push_back(' ');   // to prevent crashes at *1 below
-	while(if1.good()) {char c=if1.get(); temp1.push_back(c); originalcontrol.push_back(c);}          // parse control file character by character into temp1
+	while(input.good()) {char c=input.get(); temp1.push_back(c); originalcontrol.push_back(c);}          // parse control file character by character into temp1
 	temp1.push_back('\n');  // to prevent crashes at *2 below, and also if control file does not end in new line..
 
 	bool WR=true;
