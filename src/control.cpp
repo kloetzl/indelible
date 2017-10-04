@@ -1947,7 +1947,7 @@ int dealwithsites(vector<string> &block)
 		}
 
 		if(a[0]!='C' || a[1]!='[' || a[a.size()-1]!=']') 
-		{controlerrorprint2("[SITES]", name, a, "Only one statement after the sites class name means you are specifiying\na codon sites class and you must use the following notation:\nC[mymodelname1,mymodelname2,mymodelname3] or\nC[mybranchclass1,mybranchclass2,mybranchclass3]",""); {if(breakonerror) return -1;}  }
+		{controlerrorprint2("[SITES]", name, a, "Only one statement after the sites class name means you are specifying\na codon sites class and you must use the following notation:\nC[mymodelname1,mymodelname2,mymodelname3] or\nC[mybranchclass1,mybranchclass2,mybranchclass3]",""); {if(breakonerror) return -1;}  }
 		
 		
 		
@@ -2107,7 +2107,7 @@ int dealwithbranches(vector<string> &block, bool iscodefixed)
 	}
 			
 	if(mybracketleft!=mybracketright) 	
-	{treeerror=true; controlerrorprint2("[BRANCHES]", name, "", "Number of parantheses in guide tree do not match.",""); {if(breakonerror) return -1;}  }
+	{treeerror=true; controlerrorprint2("[BRANCHES]", name, "", "Number of parentheses in guide tree do not match.",""); {if(breakonerror) return -1;}  }
 
 	if(mybracketleft==0)  
 	{treeerror=true; controlerrorprint2("[BRANCHES]", name,"", "Branch class guide tree must contain as least one set of parentheses.",""); {if(breakonerror) return -1;}  }
@@ -2904,10 +2904,10 @@ int dealwithtrees(vector<string> &block)
 			
 						if(mybracketleft!=mybracketright) 	
 						{cout<<rawvalue<<endl<<mybracketleft<<"  "<<mybracketright<<endl;
-						treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "Number of parantheses in guide tree do not match.",""); {if(breakonerror) return -1;}  }
+						treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "Number of parentheses in guide tree do not match.",""); {if(breakonerror) return -1;}  }
 
 						if(mybracketleft==0)  
-						{treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "Guide tree must contain as least one set of parentheses.",""); {if(breakonerror) return -1;}  }
+						{treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "Guide tree mu st contain as least one set of parentheses.",""); {if(breakonerror) return -1;}  }
 													
 						c1='Q'; c2='Q'; 
 						int taxacount=0, coloncount=0, intbranch=0, extbranch=0;
@@ -2945,7 +2945,7 @@ int dealwithtrees(vector<string> &block)
 							
 							if(c2==')' && c1!=';' && lengthon==0) 
 							{ 
-								if(c1!=':') {treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "There is no branch length after a right paranthesis in the tree.\nIt happened here \""+lasterror+"\"",""); {if(breakonerror) return -1;}  }
+								if(c1!=':') {treeerror=true; controlerrorprint2("[TREE]", name, commands.at(lasttest), "There is no branch length after a right parenthesis in the tree.\nIt happened here \""+lasterror+"\"",""); {if(breakonerror) return -1;}  }
 								else {lengthon=1; currentlength="";}
 							}
 							
