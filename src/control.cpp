@@ -3704,7 +3704,7 @@ int dealwithevolve(vector<string> &block)
 		if(ans==-1) {controlerrorprint2("[EVOLVE]","","","No partitions block called "+s1+" has been defined.",""); {if(breakonerror) return -1;} }
 		else partitionpos=ans;
 
-		if(!allAinB(s2,"123456780")) { controlerrorprint2("[EVOLVE]", "", "", "Number of repetitions must be an integer value",s2); {if(breakonerror) return -1;} }		
+		if(!allAinB(s2,"1234567890")) { controlerrorprint2("[EVOLVE]", "", "", "Number of repetitions must be an integer value",s2); {if(breakonerror) return -1;} }		
 		else reps=atoi(s2.c_str());				
 		
 		if(!allAinB(s3,"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.;/()-_")) { controlerrorprint2("[EVOLVE]", "", "", "Filename stubs should only contain  ,.;()-_ and alpha-numeric characters.",s3); {if(breakonerror) return -1;} }		
